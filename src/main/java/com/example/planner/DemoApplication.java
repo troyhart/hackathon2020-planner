@@ -29,6 +29,11 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
+	@GetMapping()
+	public String ping() {
+		return "pong -> " + planSetUri;
+	}
+
 	@GetMapping(path = "/{planName}", produces = {MediaType.APPLICATION_JSON_VALUE})
 	public List<String> getMethodName(@PathVariable("planName") String planName) {
 
