@@ -1,6 +1,7 @@
 package com.example.planner;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -34,6 +35,7 @@ public class DemoApplication {
 
 		RestTemplate restTemplate = new RestTemplate();
 		List list = restTemplate.getForObject(planSetUri+"/plan-sets/"+planName, List.class);
+		System.out.println("Got list: " + list.stream().collect(Collectors.joining(",")));
 		return list;
 	}
 }
